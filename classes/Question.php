@@ -8,8 +8,8 @@ Class Question extends Config{
 
         $result=$this->conn->query($sql);
 
-        $rows=array();
-        if($result->$num_rows>0){
+        $row=array();
+        if($result->num_rows>0){
             while($row=$result->fetch_assoc()){
                 $rows[]=$row;
             }
@@ -30,9 +30,9 @@ Class Question extends Config{
         }
     }
 
-    public function save($questionname){
-        $sql="INSERT INTO questions(question_name)
-              VALUES('$questionname')";
+    public function save($quiz_id,$questionname){
+        $sql="INSERT INTO questions(quiz_id,question_name)
+              VALUES('$quiz_id','$questionname')";
         
         $result=$this->conn->query($sql);
         if($result){
@@ -43,7 +43,7 @@ Class Question extends Config{
     }
 
     public function update($id,$questionname){
-        $sql="UPDATE questions SET questionname='$questionname' WHERE question_id=$id";
+        $sql="UPDATE questions SET question_name='$questionname' WHERE question_id=$id";
 
         $result=$this->conn->query($id);
 
@@ -57,7 +57,7 @@ Class Question extends Config{
     public function delete($id){
         $sql="DELETE FROM questions WHERE question_id=$id";
 
-        $result=$this->conn->query($sql);
+        $result = $this->conn->query($sql);
 
         if($result){
             return true;

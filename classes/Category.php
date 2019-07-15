@@ -31,9 +31,9 @@ Class Category extends Config{
             echo "Error:" .$this->conn->error;
         }
     }
-    public function save($categoryname){
-        $sql = "INSERT INTO categories(categoryname)
-                VALUES('$categoryname')";
+    public function save($country_id,$categoryname){
+        $sql = "INSERT INTO categories(country_id,category_name)
+                VALUES('$country_id','$categoryname')";
         $result = $this->conn->query($sql);
 
         if($result){
@@ -43,7 +43,7 @@ Class Category extends Config{
         }
     }
     public function update($id,$categoryname){
-        $sql = "UPDATE categories SET categoryname='$categoryname' WHERE category_id=$id";
+        $sql = "UPDATE categories SET category_name='$categoryname' WHERE category_id=$id";
 
         $result = $this->conn->query($sql);
 

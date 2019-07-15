@@ -1,4 +1,5 @@
 <?php
+include "../admin/common/head.php";
 require_once "../classes/Answer.php";
 
 $answers = new Answer;

@@ -1,4 +1,5 @@
 <?php
+include "../admin/common/head.php";
 require_once "../classes/Quiz.php";
 
 $quizzes = new Quiz;
@@ -26,6 +27,7 @@ $quizzes = new Quiz;
                       <table class="table table-striped">
                           <thead class="bg-dark text-light">
                               <th>ID</th>
+                              <th>Category Name</th>
                               <th>Quiz Name</th>
                               <th>Action</th>
                             
@@ -39,13 +41,14 @@ $quizzes = new Quiz;
                                   foreach($get_quizzes as $key=>$row){
                                       $id= $row['quiz_id'];
                                       echo "<tr>";
-                                      echo "<td>". $row['quiz_id'] ."</td>";
-                                      echo "<td>". $row['quizname'] ."</td>";
+                                      echo "<td>". $row['quiz_id']."</td>";
+                                      echo "<td>". $row['category_id'] ."</td>";
+                                      echo "<td>". $row['quiz_name'] ."</td>";
                                       echo "<td>
                                             <a href='edit_quiz.php?quiz_id=$id' class='btn btn-primary btn-sm'>Edit</a>";
                                             ?>
 
-                                        <a href='quiz_action.php?action=delete&quiz_id=<?php echo $id;?>' class='btn btn-danger btn-sm' onclick='return confirm("Are you sure you wanna delete");'>Delete</a>
+                                        <a href="quiz_action.php?action=delete&quiz_id=<?php echo $id;?>" class='btn btn-danger btn-sm' onclick='return confirm("Are you sure you wanna delete");'>Delete</a>
 
                                   </td>
 

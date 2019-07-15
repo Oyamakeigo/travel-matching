@@ -1,4 +1,5 @@
 <?php
+include "../admin/common/head.php";
 require_once "../classes/Country.php";
 
 $countries = new Country;
@@ -41,8 +42,8 @@ $countries = new Country;
                                       $id= $row['country_id'];
                                       echo "<tr>";
                                       echo "<td>". $row['country_id'] ."</td>";
-                                      echo "<td>". $row['countryname'] ."</td>";
-                                      echo "<td>". $row['countrydescription'] ."</td>";
+                                      echo "<td>". $row['country_name'] ."</td>";
+                                      echo "<td>". $row['country_description'] ."</td>";
                                       echo "<td>
                                             <a href='edit_country.php?country_id=$id' class='btn btn-primary btn-sm'>Edit</a>";
                                             ?>

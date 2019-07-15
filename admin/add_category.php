@@ -1,3 +1,8 @@
+<?php
+include "../admin/common/head.php";
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -19,26 +24,27 @@
 
                          <div class="form-group">
                              <label for="">Country name</label>
-                             <select name="country" id="" class="form-control">
+                             <select name="country_id" id="" class="form-control">
                                 <?php
-                                require_once "../class/Country.php";
+                                require_once "../classes/Country.php";
 
                                 $country = new Country;
-                                $id = $_GET['country_id'];
-                                $get_country = $country->selectOne($id);
+                                
+                                $get_country = $country->selectAll();
 
-                                foreach($country as $key => $row){
+                                foreach($get_country as $key => $row){
                                     $country_id = $row['country_id'];
                                     $country_name = $row['country_name'];
-                                    echo "<potion value='$country_id'>$country_name</potion>";
+                                    echo "<option value='$country_id'>$country_name</option>";
                                 }
 
                                 ?>
                              </select>
-                        </div>
-                         <div class="form-group">
+                            </div>
+                       
+                        <div class="form-group">
                              <label for="">Category</label>
-                             <input type="text" name="categoryname" id="" class="form-control">
+                             <input type="text" name="category_name" id="" class="form-control">
                          </div>
 
                          <button class="btn btn-primary" type="submit" name="add">Save</button>

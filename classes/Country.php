@@ -8,11 +8,10 @@ Class Country extends Config{
 
         $result=$this->conn->query($sql);
 
-        $row=array();
+        $rows=array();
         if($result->num_rows>0){
             while($row=$result->fetch_assoc()){
                  $rows[]=$row;
-           
              }
              return $rows;
         } else{
@@ -33,7 +32,7 @@ Class Country extends Config{
 
     public function save($countryname,$countrydescription){
 
-        $sql="INSERT INTO countries(countryname,countrydescription)
+        $sql="INSERT INTO countries(country_name,country_description)
               VALUES('$countryname','$countrydescription')";
         $result=$this->conn->query($sql);
 
@@ -45,7 +44,7 @@ Class Country extends Config{
     }
 
     public function update($id,$countryname,$countrydescription){
-        $sql="UPDATE countries SET countryname='$countryname',countrydescription='$countrydescription' WHERE country_id=$id";
+        $sql="UPDATE countries SET country_name='$countryname',country_description='$countrydescription' WHERE country_id=$id";
 
         $result=$this->conn->query($sql);
 

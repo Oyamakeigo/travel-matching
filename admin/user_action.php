@@ -4,13 +4,14 @@
   $user =new User;
 
   if($_GET['action']=='add'){
+     
       $username=$_POST['username'];
       $firstname=$_POST['firstname'];
       $lastname=$_POST['lastname'];
       $email=$_POST['email'];
-      $hashed_password=$_POST['password'];
+      $password=$_POST['password'];
       $bio=$_POST['bio'];
-      $result=$user->save($username,$email,$password,$bio,$firstname,$lastname);
+      $result=$user->save($username,$password,$email,$bio,$firstname,$lastname);
 
       if($result){
          $user->redirect_js('users.php');
@@ -23,8 +24,9 @@
       $firstname=$_POST['firstname'];
       $lastname=$_POST['lastname'];
       $email=$_POST['email'];
+      $password = $_POST['password'];
       $bio=$_POST['bio'];
-      $result=$user->update($user_id,$username,$email,$bio,$firstname,$lastname);
+      $result=$user->update($user_id,$username,$email,$bio,$firstname,$lastname,$password);
       
         if($result) {
          $user->redirect_js('users.php');

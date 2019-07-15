@@ -6,7 +6,7 @@ class User extends Config{
     //login
     public function login($username,$password){
         $hashed_password =md5($password);
-        $sql="SELECT * FROM users WHERE username = '$username' AND password= '$password' ";
+        $sql="SELECT * FROM users WHERE username = '$username' AND password= '$hashed_password' ";
 
         $result=$this->conn->query($sql);
         if($result){
@@ -16,9 +16,9 @@ class User extends Config{
 
           if($result->num_rows>0){
               if($row['status']=='a'){
-                 $this->redirect_js("admin/index.php");
+                 $this->redirect_js("index.php");
               }else{
-                 $this->redirect_js("user/index.php");
+                 $this->redirect_js("../user/index.php");
               }
           }else{
              echo "Username and Password error.";
@@ -61,7 +61,7 @@ class User extends Config{
 
         $new_password=md5($password);
         $sql="INSERT INTO users(username,password,email,bio,firstname,lastname)
-              VALUES('$username','$password','$email','$bio','firstname','lastname')";
+              VALUES('$username','$new_password','$email','$bio','$firstname','$lastname')";
         $result=$this->conn->query($sql);
 
         if($result){
@@ -71,8 +71,8 @@ class User extends Config{
         }
         
     }
-    public function update($id,$username,$email,$bio,$firstname,$lastname){
-         $sql="UPDATE users SET username='$username',email='$email',bio='$bio',firstname='$firstname',lastname='$lastname'
+    public function update($id,$username,$password,$email,$bio,$firstname,$lastname){
+         $sql="UPDATE users SET username='$username',password='$password',email='$email',bio='$bio',firstname='$firstname',lastname='$lastname'
                WHERE user_id=$id";
         
         $result=$this->conn->query($sql);

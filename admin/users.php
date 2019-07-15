@@ -1,5 +1,7 @@
 <?php
+include "../admin/common/head.php";
 require_once "../classes/User.php";
+
 
 $users = new User;
 
@@ -27,12 +29,12 @@ $users = new User;
                           <thead class="bg-dark text-light">
                               <th>ID</th>
                               <th>Username</th>
-                              <th>First Name</th>
-                              <th>Last Name</th>
-                              <th>Bio</th>
-                              <th>Email</th>
+                              <th>email</th>
+                              <th>bio</th>
                               <th>Created at</th>
                               <th>Updated at</th>
+                              <th>firstname</th>
+                              <th>lastname</th>
                               <th>Action</th>
                             
                           </thead>
@@ -47,12 +49,12 @@ $users = new User;
                                       echo "<tr>";
                                       echo "<td>". $row['user_id'] ."</td>";
                                       echo "<td>". $row['username'] ."</td>";
-                                      echo "<td>". $row['firstname'] ."</td>";
-                                      echo "<td>". $row['lastname'] ."</td>";
-                                      echo "<td>". $row['bio'] ."</td>";
                                       echo "<td>". $row['email'] ."</td>";
+                                      echo "<td>". $row['bio'] ."</td>";
                                       echo "<td>". $row['created_at'] ."</td>";
                                       echo "<td>". $row['updated_at'] ."</td>";
+                                      echo "<td>". $row['firstname'] ."</td>";
+                                      echo "<td>". $row['lastname'] ."</td>";
                                       echo "<td>
                                             <a href='edit_user.php?user_id=$id' class='btn btn-primary btn-sm'>Edit</a>";
                                             ?>

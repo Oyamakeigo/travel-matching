@@ -7,10 +7,10 @@ require_once "../classes/Category.php";
 $category = new Category;
 
  if($_GET['action'] == 'add'){
-     $categoryname = $_POST['categoryname'];
-     $countryname = $_POST['countryname'];
+     $countryname = $_POST['country_id'];
+     $categoryname = $_POST['category_name'];
    
-     $result = $category->save($categoryname,$countryname);
+     $result = $category->save($countryname,$categoryname);
 
      if($result){
         $category->redirect_js('categories.php');
@@ -19,8 +19,8 @@ $category = new Category;
      }
  }elseif($_GET['action'] =='update'){
   $category_id = $_POST['category_id'];
-  $categoryname = $_POST['categoryname'];
-  $countryname = $_POST['countryname'];
+  $categoryname = $_POST['category_name'];
+  $countryname = $_POST['country_name'];
 
   $result = $category->update($category_id,$categoryname,$countryname);
 

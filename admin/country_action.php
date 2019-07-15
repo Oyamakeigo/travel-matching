@@ -21,8 +21,8 @@ if($_GET['action']=='add'){
         $country->redirect_js('countries.php');
     }
 }elseif($_GET['action']=='delete'){
-    
-    $country_id=$_POST['country_id'];
+
+    $country_id=$_GET['country_id'];
     $result=$country->delete($country_id);
 
     if($result){

@@ -1,5 +1,7 @@
 <?php
+include "../admin/common/head.php";
 require_once "../classes/Category.php";
+
 
 $categories = new Category;
 
@@ -26,14 +28,15 @@ $categories = new Category;
                       <table class="table table-striped">
                           <thead class="bg-dark text-light">
                               <th>ID</th>
+                              <th>country Name</th>
                               <th>Category Name</th>
-                              <th>Country ID</th>
-                              <th>Country Name</th>
                               <th>Action</th>
                             
                           </thead>
                           <tbody>
                               <?php
+
+                              require_once "../classes/Country.php";
 
                               $get_categories = $categories->selectAll();
 
@@ -42,9 +45,10 @@ $categories = new Category;
                                       $id= $row['category_id'];
                                       echo "<tr>";
                                       echo "<td>". $row['category_id'] ."</td>";
-                                      echo "<td>". $row['categoryname'] ."</td>";
                                       echo "<td>". $row['country_id'] ."</td>";
-                                      echo "<td>". $row['country_name'] ."</td>";
+                                      echo "<td>". $row['category_name'] ."</td>";
+                                   
+                                 
                                       echo "<td>
                                             <a href='edit_category.php?category_id=$id' class='btn btn-primary btn-sm'>Edit</a>";
                                             ?>
@@ -63,7 +67,7 @@ $categories = new Category;
                               ?>
                           </tbody>
                       </table>
-                      <a href="add_user.php" class="btn btn-info" type="submit" name="save">Add</a>
+                      <a href="add_category.php" class="btn btn-info" type="submit" name="save">Add</a>
                   </div>
               </div>
           </div>

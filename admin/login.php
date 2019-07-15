@@ -1,8 +1,4 @@
-<?php
-require_once "../classes/User.php";
 
-$users = new User;
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +49,7 @@ $users = new User;
                       <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
                     </div>
     
-                    <button class="btn btn-primary btn-user btn-block" name="submit" type="submit">
+                    <button class="btn btn-primary btn-user btn-block" name="login" type="submit">
                       Login
                     </button>
                     <hr>
@@ -63,20 +59,23 @@ $users = new User;
                     <button class="btn btn-facebook btn-user btn-block">
                       <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                     </button>
-                    <?php
+           
+                  </form>      
+                  
+                  <?php
                    session_start();
                    require_once "../classes/User.php";
-
+                   
                    $user = new User;
 
-                   if(isset($_POST)){
+                   if(isset($_POST['login'])){
                      $username = $_POST['username'];
                      $password = $_POST['password'];
+
 
                      $user->login($username,$password);
                    }
                     ?>
-                  </form>
                   <hr>
  
                   <div class="text-center">

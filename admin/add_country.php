@@ -1,3 +1,8 @@
+<?php
+include "../admin/common/head.php";
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -19,7 +24,7 @@
 
                             <div class="form-group">
                                 <label for="">Country name</label>
-                                <input type="text" name="categoryname" id="" class="form-control" required>
+                                <input type="text" name="countryname" id="" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Country Description</label>

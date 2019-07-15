@@ -1,3 +1,8 @@
+<?php
+include "../admin/common/head.php";
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -23,7 +28,7 @@
 
                             <div class="form-group">
                                 <label>Question Name</label>
-                                <select name="question" id="" class="form-control d-block mx-auto">
+                                <select name="question_name" id="" class="form-control d-block mx-auto">
                                     <?php
                             require_once "../classes/Question.php";
 
@@ -42,12 +47,12 @@
 
                             <div class="form-group">
                                 <label>Answer Option</label>
-                                <input type="text" name="answeroption" class="form-control">
+                                <input type="text" name="answer_option" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label>Answer Status</label>
-                                <input type="text" name="answerstatus" class="form-control">
+                                <input type="text" name="answer_status" class="form-control">
                             </div>
 
                             <button class="btn btn-primary" type="submit" name="add">Save</button>

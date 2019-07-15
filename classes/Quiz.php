@@ -5,7 +5,7 @@ require_once "Config.php";
 Class Quiz extends Config{
     public function selectAll(){
 
-        $sql = "SELECT * FROM quizzes ORDER BY quiz_id
+        $sql = "SELECT * FROM quizes ORDER BY quiz_id
          DESC";
 
         $result = $this->conn->query($sql);
@@ -23,7 +23,7 @@ Class Quiz extends Config{
     }
 
     public function selectOne($id){
-        $sql = "SELECT * FROM quizzes WHERE quiz_id=$id";
+        $sql = "SELECT * FROM quizes WHERE quiz_id=$id";
         $result = $this->conn->query($sql);
 
         if($result){
@@ -33,10 +33,10 @@ Class Quiz extends Config{
         }
     }
 
-    public function save($quizname){
+    public function save($category_id,$quizname){
 
-        $sql ="INSERT INTO quizzes(quiz_name)
-               VALUES('$quizname')";
+        $sql ="INSERT INTO quizes(category_id,quiz_name)
+               VALUES('$category_id','$quizname')";
         
         $result = $this->conn->query($sql);
 
@@ -48,7 +48,7 @@ Class Quiz extends Config{
     }
 
     public function update($id,$quizname){
-        $sql ="UPDATE quizzes SET quizname='$quizname' WHERE quiz_id =$id";
+        $sql ="UPDATE quizes SET quiz_name='$quizname' WHERE quiz_id =$id";
 
         $result =$this->conn->query($sql);
         if($result){
@@ -58,7 +58,7 @@ Class Quiz extends Config{
         }
     }
     public function delete($id){
-        $sql ="DELETE FROM quizzes WHERE quiz_id=$id";
+        $sql ="DELETE FROM quizes WHERE quiz_id=$id";
 
         $result = $this->conn->query($sql);
 

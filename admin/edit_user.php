@@ -1,4 +1,5 @@
 <?php
+include "../admin/common/head.php";
 require_once "../classes/User.php";
 
 $user= new User;
@@ -50,6 +51,11 @@ $get_user = $user->selectOne($id);
                  <div class="form-group">
                   <label>Bio</label>
                   <input type="text" name="bio" class="form-control" value="<?php echo $get_user['bio'];?>">
+                 </div>
+                 
+                 <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" name="password" class="form-control" value="<?php echo $get_user['password'];?>">
                  </div>
 
 
