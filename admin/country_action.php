@@ -4,8 +4,8 @@ require_once "../classes/Country.php";
 $country = new Country;
 
 if($_GET['action']=='add'){
-    $countryname=$_POST['countryname'];
-    $countrydescription=$_POST['countrydescription'];
+    $countryname=$_POST['country_name'];
+    $countrydescription=$_POST['country_description'];
     $result=$country->save($countryname,$countrydescription);
 
     if($result){
@@ -13,8 +13,8 @@ if($_GET['action']=='add'){
     }
 }elseif($_GET['action']=='update'){
     $country_id=$_POST['country_id'];
-    $countryname=$_POST['countryname'];
-    $countrydescription=$_POST['countrydescription'];
+    $countryname=$_POST['country_name'];
+    $countrydescription=$_POST['country_description'];
     $result=$country->update($country_id,$countryname,$countrydescription);
 
     if($result){

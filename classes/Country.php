@@ -66,6 +66,14 @@ Class Country extends Config{
             echo "Error:" .$this->conn->error;
         }
     }
+    public function count_countries(){
+        $sql = "SELECT COUNT(*) as total_countries FROM countries";
+        $result = $this->conn->query($sql);
+
+        $row = $result->fetch_assoc();
+
+        return $row;
+    }
 }
 
 

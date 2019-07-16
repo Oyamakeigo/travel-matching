@@ -5,7 +5,8 @@ require_once "Config.php";
 Class Category extends Config{
     public function selectAll(){
 
-        $sql="SELECT * FROM categories ORDER BY category_id DESC";
+        $sql="SELECT * FROM categories
+              INNER JOIN countries ON categories.country_id = countries.country_id";
 
         $result=$this->conn->query($sql);
 
@@ -63,6 +64,14 @@ Class Category extends Config{
         }else{
             echo "Error:" .$this->conn->error;
         }
+    }
+    public function count_categories(){
+        $sql = "SELECT COUNT(*) as total_categories FROM categories";
+        $result = $this->conn->query($sql);
+
+        $row = $result->fetch_assoc();
+
+        return $row;
     }
 
  

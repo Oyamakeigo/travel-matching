@@ -93,6 +93,14 @@ class User extends Config{
             echo "Error:" .$this->conn->error;
         }
     }
+    public function count_users(){
+        $sql = "SELECT COUNT(*) as total_users FROM users";
+        $result = $this->conn->query($sql);
+
+        $row = $result->fetch_assoc();
+
+        return $row;
+    }
    
 
 

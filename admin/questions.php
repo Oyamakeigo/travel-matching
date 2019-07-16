@@ -39,7 +39,7 @@ $questions = new Question;
                                         $id= $row['question_id'];
                                         echo "<tr>";
                                         echo "<td>". $row['question_id']  ."</td>";
-                                        echo "<td>". $row['quiz_id']  ."</td>";
+                                        echo "<td>". $row['quiz_name']  ."</td>";
                                         echo "<td>". $row['question_name']  ."</td>";
                                         echo "<td>
                                                <a href='edit_question.php?question_id=$id'  class='btn btn-primary btn-sm'>Edit</a>";
@@ -61,7 +61,7 @@ $questions = new Question;
                             
                             </tbody>
                         </table>
-                        <a href="add_question.php" class="btn btn-info" type="submit" name="save">Add</a>
+                        <a href="add_question.php" class="btn btn-info" name="save">Add</a>
                     </div>
                 </div>
              </div>

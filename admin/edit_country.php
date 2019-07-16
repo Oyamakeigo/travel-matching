@@ -30,12 +30,12 @@ $get_country = $country->selectOne($id);
                     <input type="hidden" name="country_id" value="<?php echo $_GET['country_id'];?>">
                  <div class="form-group">
                   <label>Country Name</label>
-                  <input type="text" name="countryname" class="form-control" value="<?php echo $get_country['countryname'];?>">
+                  <input type="text" name="country_name" class="form-control" value="<?php echo $get_country['country_name'];?>">
                  </div>
 
                  <div class="form-group">
                   <label>Country Description</label>
-                  <input type="text" name="countrydescription" class="form-control" value="<?php echo $get_country['countrydescription'];?>">
+                  <input type="text" name="country_description" class="form-control" value="<?php echo $get_country['country_description'];?>">
                  </div>
 
 

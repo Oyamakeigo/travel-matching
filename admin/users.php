@@ -73,7 +73,7 @@ $users = new User;
                               ?>
                           </tbody>
                       </table>
-                      <a href="add_user.php" class="btn btn-info" type="submit" name="save">Add</a>
+                      <a href="add_user.php" class="btn btn-info" name="save">Add</a>
                   </div>
               </div>
           </div>

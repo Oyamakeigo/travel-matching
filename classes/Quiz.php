@@ -5,8 +5,8 @@ require_once "Config.php";
 Class Quiz extends Config{
     public function selectAll(){
 
-        $sql = "SELECT * FROM quizes ORDER BY quiz_id
-         DESC";
+        $sql = "SELECT * FROM quizes 
+                INNER JOIN categories ON quizes.category_id = categories.category_id";
 
         $result = $this->conn->query($sql);
 

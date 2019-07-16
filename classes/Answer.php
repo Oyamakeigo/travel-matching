@@ -10,12 +10,12 @@ Class Answer extends Config{
 
         $result=$this->conn->query($sql);
 
-        $row=array();
+        $rows=array();
         if($result->num_rows>0){
             while ($row=$result->fetch_assoc()){
                 $rows[]=$row;
             }
-            return $row;
+            return $rows;
         }else{
             return false;
         }
@@ -32,9 +32,9 @@ Class Answer extends Config{
         }
     }
 
-    public function save($answeroption,$answerstatus){
-        $sql="INSERT INTO answers(answeroption,answerstatus)
-              VALUES('$answeroption','$answerstatus')";
+    public function save($question_id,$answeroption,$answerstatus){
+        $sql="INSERT INTO answers(question_id,answer_option,answer_status)
+              VALUES('$question_id','$answeroption','$answerstatus')";
         $result=$this->conn->query($sql);
 
         if($result){
@@ -45,7 +45,7 @@ Class Answer extends Config{
     }
 
     public function update($id,$answeroption,$answerstatus){
-        $sql="UPDATE answers SET answeroption='$answeroption',answerstatus='$answerstatus' WHERE answer_id=$id";
+        $sql="UPDATE answers SET answer_option='$answeroption',answer_status='$answerstatus' WHERE answer_id=$id";
 
         $result=$this->conn->query($sql);
         if($result){

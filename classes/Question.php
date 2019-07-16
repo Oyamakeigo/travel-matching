@@ -4,7 +4,8 @@ require_once "Config.php";
 
 Class Question extends Config{
     public function selectAll(){
-        $sql="SELECT * FROM questions ORDER BY question_id DESC";
+        $sql="SELECT * FROM questions 
+              INNER JOIN quizes ON questions.quiz_id = quizes.quiz_id ";
 
         $result=$this->conn->query($sql);
 
@@ -64,5 +65,13 @@ Class Question extends Config{
         }else{
             echo "Error:" .$this->conn->error;
         }
+    }
+    public function count_questions(){
+        $sql = "SELECT COUNT(*) as total_questions FROM questions";
+        $result = $this->conn->query($sql);
+
+        $row = $result->fetch_assoc();
+
+        return $row;
     }
 }

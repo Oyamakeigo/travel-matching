@@ -5,20 +5,6 @@ require_once "../classes/Country.php";
 $countries = new Country;
 
 ?>
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
-    
   <div class="container">
       <div class="row justify-content-center mt-5">
           <div class="col-12">
@@ -62,7 +48,7 @@ $countries = new Country;
                               ?>
                           </tbody>
                       </table>
-                      <a href="add_country.php" class="btn btn-info" type="submit" name="save">Add</a>
+                      <a href="add_country.php" class="btn btn-info" name="save">Add</a>
                   </div>
               </div>
           </div>

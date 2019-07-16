@@ -45,7 +45,7 @@ $categories = new Category;
                                       $id= $row['category_id'];
                                       echo "<tr>";
                                       echo "<td>". $row['category_id'] ."</td>";
-                                      echo "<td>". $row['country_id'] ."</td>";
+                                      echo "<td>". $row['country_name'] ."</td>";
                                       echo "<td>". $row['category_name'] ."</td>";
                                    
                                  
@@ -67,7 +67,7 @@ $categories = new Category;
                               ?>
                           </tbody>
                       </table>
-                      <a href="add_category.php" class="btn btn-info" type="submit" name="save">Add</a>
+                      <a href="add_category.php" class="btn btn-info" name="save">Add</a>
                   </div>
               </div>
           </div>

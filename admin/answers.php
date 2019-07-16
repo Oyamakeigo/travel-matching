@@ -27,6 +27,7 @@ $answers = new Answer;
                       <table class="table table-striped">
                           <thead class="bg-dark text-light">
                               <th>ID</th>
+                              <th>Question ID</th>
                               <th>Answer Option</th>
                               <th>Answer Status</th>
                               <th>Action</th>
@@ -42,8 +43,9 @@ $answers = new Answer;
                                       $id= $row['answer_id'];
                                       echo "<tr>";
                                       echo "<td>". $row['answer_id'] ."</td>";
-                                      echo "<td>". $row['answeroption'] ."</td>";
-                                      echo "<td>". $row['answerstatus'] ."</td>";
+                                      echo "<td>". $row['question_id'] ."</td>";
+                                      echo "<td>". $row['answer_option'] ."</td>";
+                                      echo "<td>". $row['answer_status'] ."</td>";
                                       echo "<td>
                                             <a href='edit_answer.php?answer_id=$id' class='btn btn-primary btn-sm'>Edit</a>";
                                             ?>
@@ -62,7 +64,7 @@ $answers = new Answer;
                               ?>
                           </tbody>
                       </table>
-                      <a href="add_answer.php" class="btn btn-info" type="submit" name="save">Add</a>
+                      <a href="add_answer.php" class="btn btn-info" name="save">Add</a>
                   </div>
               </div>
           </div>

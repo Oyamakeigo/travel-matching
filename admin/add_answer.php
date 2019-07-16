@@ -28,15 +28,15 @@ include "../admin/common/head.php";
 
                             <div class="form-group">
                                 <label>Question Name</label>
-                                <select name="question_name" id="" class="form-control d-block mx-auto">
+                                <select name="question_" id="" class="form-control d-block mx-auto">
                                     <?php
                             require_once "../classes/Question.php";
 
                             $question = new Question;
-                            $id = $_GET['question_id'];
-                            $get_question = $question->selectOne($id);
+              
+                            $get_question = $question->selectAll();
 
-                            foreach($question as $key =>$row){
+                            foreach($get_question as $key =>$row){
                                 $question_id = $row['question_id'];
                                 $question_name = $row['question_name'];
                                 echo "<option value='$question_id'>$question_name</option>";
