@@ -28,7 +28,7 @@ include "../admin/common/head.php";
 
                             <div class="form-group">
                                 <label>Question Name</label>
-                                <select name="question_" id="" class="form-control d-block mx-auto">
+                                <select name="question_id" id="" class="form-control d-block mx-auto">
                                     <?php
                             require_once "../classes/Question.php";
 

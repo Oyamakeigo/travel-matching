@@ -5,6 +5,20 @@ require_once "../classes/Country.php";
 $countries = new Country;
 
 ?>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+
   <div class="container">
       <div class="row justify-content-center mt-5">
           <div class="col-12">
@@ -27,22 +41,22 @@ $countries = new Country;
                                   foreach($get_countries as $key=>$row){
                                       $id= $row['country_id'];
                                       echo "<tr>";
-                                      echo "<td>". $row['country_id'] ."</td>";
-                                      echo "<td>". $row['country_name'] ."</td>";
-                                      echo "<td>". $row['country_description'] ."</td>";
-                                      echo "<td>
+                                      echo "<th>". $row['country_id'] ."</th>";
+                                      echo "<th>". $row['country_name'] ."</th>";
+                                      echo "<th>". $row['country_description'] ."</th>";
+                                      echo "<th>
                                             <a href='edit_country.php?country_id=$id' class='btn btn-primary btn-sm'>Edit</a>";
                                             ?>
 
                                         <a href='country_action.php?action=delete&country_id=<?php echo $id;?>' class='btn btn-danger btn-sm' onclick='return confirm("Are you sure you wanna delete");'>Delete</a>
 
-                                  </td>
+                                  </th>
 
                                   </tr>
                         <?php
                                   }
                               }else{
-                                  echo "<tr><td colspan='7' class'text-center'>Nothing to show</td></tr>";
+                                  echo "<tr><th colspan='7' class'text-center'>Nothing to show</th></tr>";
                               }
 
                               ?>
