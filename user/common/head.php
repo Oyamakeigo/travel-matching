@@ -2,6 +2,7 @@
 session_start();
 require_once "../classes/User.php";
 
+
 $user = new User;
 $id =$_SESSION['user_id'];
 $get_user = $user->selectOne($id);
@@ -42,7 +43,7 @@ $get_user = $user->selectOne($id);
                 <a class="nav-link active" href="index.php">Home</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle"  id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Destination</a>
+      
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
                   <a class="dropdown-item" href="country.php">Countries</a>
                   <a class="dropdown-item" href="culture.php">Culture</a>
@@ -59,9 +60,32 @@ $get_user = $user->selectOne($id);
               <li class="nav-item">
                 <a class="nav-link" href="contact.php">Contact</a>
               </li>
+
+               <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle"  id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $get_user['username']; ?></span>
+                <img class="img-profile rounded-circle" src="common/material_image/IMG_6380.JPG">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="user_review.php">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+               
+                
+                <a class="dropdown-item" href="../admin/login.php" >
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
             </ul>
             
           </div>
         </div>
       </nav>
     </header>
+
+    

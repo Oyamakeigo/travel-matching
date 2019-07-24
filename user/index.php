@@ -1,6 +1,10 @@
 <?php
 require_once("common/head.php");
 require_once "../classes/Country.php";
+
+$country = new Country;
+
+
 ?>
     <section class="site-hero overlay" data-stellar-background-ratio="0.5" style="background-image: url(images/big_image_1.jpg);">
       <div class="container">
@@ -12,10 +16,23 @@ require_once "../classes/Country.php";
               <p>Discover great places around the world.</p>
             </div>
 
-            <form class="form-inline element-animate" id="search-form">
+            <form class="form-inline element-animate" id="search-form" action="search_result.php" method="get">
               <label for="" class="sr-only">Location</label>
-              <input type="text" class="form-control form-control-block search-input" id="autocomplete" placeholder="Search Location with Google Search API" onFocus="geolocate()">
-              <button type="submit" class="btn btn-primary">Search</button>
+              <!-- <input type="text" class="form-control form-control-block search-input" id="autocomplete" placeholder="Search Location with Google Search API" onFocus="geolocate()"> -->
+              <select name="country" id="" class="form-control form-control-block search-input">
+                <option value="">Select Country</option>
+                <?php
+                $get_country=$country->selectAll();
+
+                foreach($get_country as $key => $row){
+                       $country_id = $row['country_id'];
+                       $country_name = $row['country_name'];
+                       echo "<option value='$country_id'>$country_name</option>";
+                }
+                
+                ?>
+              </select>
+              <button type="submit" class="btn btn-primary" name="search">Search</button>
             </form>
 
           </div>
@@ -64,49 +81,49 @@ require_once "../classes/Country.php";
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center">
             <h2>Top Destinations</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum magnam illum maiores adipisci pariatur, eveniet.</p>
+            <p>There are a lot of sublime spots in this world.Let's go find the amazing view of the world.</p>
           </div>
         </div>
         <div class="row top-destination">
           <div class="col-lg-2 col-md-4 col-sm-6 col-12">
             <a href="#" class="place">
               <img src="images/img_1.jpg" alt="Image placeholder">
-              <h2>Trogir, Croatia</h2>
+              <h2>Varanasi, India</h2>
               <p>Visit This Place</p>
             </a>
           </div>
           <div class="col-lg-2 col-md-4 col-sm-6 col-12">
             <a href="#" class="place">
               <img src="images/img_2.jpg" alt="Image placeholder">
-              <h2>Stockton Beach, Australia</h2>
+              <h2>Penang, Malaysia</h2>
               <p>Visit This Place</p>
             </a>
           </div>
           <div class="col-lg-2 col-md-4 col-sm-6 col-12">
             <a href="#" class="place">
               <img src="images/img_3.jpg" alt="Image placeholder">
-              <h2>Desert, Morocco</h2>
+              <h2>Tops, Hong Kong</h2>
               <p>Visit This Place</p>
             </a>
           </div>
           <div class="col-lg-2 col-md-4 col-sm-6 col-12">
             <a href="#" class="place">
               <img src="images/img_4.jpg" alt="Image placeholder">
-              <h2>Taj Mahal, India</h2>
+              <h2>Siquijor Island、Phillipines</h2>
               <p>Visit This Place</p>
             </a>
           </div>
           <div class="col-lg-2 col-md-4 col-sm-6 col-12">
             <a href="#" class="place">
               <img src="images/img_5.jpg" alt="Image placeholder">
-              <h2>Eiffel Tower, France</h2>
+              <h2>Makeron market, Thailand</h2>
               <p>Visit This Place</p>
-            </a>
-          </div>
+             </a>
+</div>
           <div class="col-lg-2 col-md-4 col-sm-6 col-12">
             <a href="#" class="place">
               <img src="images/img_6.jpg" alt="Image placeholder">
-              <h2>Opera House, Australia</h2>
+              <h2>Jodhpur, India</h2>
               <p>Visit This Place</p>
             </a>
           </div>
@@ -179,7 +196,7 @@ require_once "../classes/Country.php";
                   <a href="#" class="img-bg last" style="background-image: url('images/img_3.jpg')">
                     <div class="text">
                       <span class="icon ion-ios-location"></span>
-                      <h2>Desert, Morocco</h2>
+                      <h2></h2>
                       <p>Visit This Place</p>
                     </div>
                   </a>
@@ -224,7 +241,7 @@ require_once "../classes/Country.php";
         <div class="row justify-content-center">
           <div class="col-md-7 text-center">
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
- &copy;<script>document.write(new Date().getFullYear());</script> travel matching by KG 
+ &copy;<script>document.write(new Date().getFullYear());</script> UNITRA by KG 
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           </div>
         </div>

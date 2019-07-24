@@ -74,5 +74,21 @@ Class Category extends Config{
         return $row;
     }
 
+    public function selectCountryCategories($id){
+        $sql="SELECT * FROM categories WHERE country_id=$id";
+        $result=$this->conn->query($sql);
+    
+        $rows=array();
+
+        if($result->num_rows >0){
+            while($row=$result->fetch_assoc()){
+                $rows[]=$row;
+            }
+            return $rows;
+        }else{
+            return false;
+        }
+    }
+
  
 }

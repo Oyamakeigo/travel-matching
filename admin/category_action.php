@@ -29,6 +29,7 @@ $category = new Category;
    }
  }elseif($_GET['action'] =='delete' ){
       $category_id = $_GET['category_id'];
+      
       $result = $category->delete($category_id);
       if($result){
       $category->redirect_js('categories.php');
